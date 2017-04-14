@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+    .anchorClass{
+        text-decoration:none;
+        color:black;
+        }
+</style>
+
+
+
+
+<div class="container">
+		<div class="row">
+
+            <div class="col-md-5">
+                    <h2>Add New Task </h2>
+                    <hr/>
+                 <form action="" method="post">
+            {% csrf_token %}
+                  <div class="form-group">
+            {{form.as_p}}
+                  </div>
+                <input type="submit" name="submit" value="Update" class="btn btn-info"/>
+
+            </form>
+
+            </div>
+            <div class="col-md-7">
+
+            </div>
+
+
+
+		</div>
+	</div>
+{% endblock content %}

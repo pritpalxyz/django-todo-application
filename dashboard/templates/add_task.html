@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+    .anchorClass{
+        text-decoration:none;
+        color:black;
+        }
+</style>
+
+
+
+
+<div class="container">
+		<div class="row">
+
+            <div class="col-md-5">
+                    <h2>Add New Task </h2>
+                    <hr/>
+                 <form action="" method="post">
+            {% csrf_token %}
+                  <div class="form-group">
+            {{form.as_p}}
+                  </div>
+                <input type="submit" name="submit" value="Add task" class="btn btn-info"/>
+
+            </form>
+
+            </div>
+            <div class="col-md-7">
+                <h2>Task added by you</h2>
+                <hr/>
+<ul class="event-list">
+
+
+
+                {% for i in todo %}
+					<li>
+						<time >
+							<span class="day">{{i.addedDate.day}}</span>
+							<span class="month">{{i.addedDate.month}},{{i.addedDate.year}}</span>
+
+						</time>
+						<div class="info">
+							<a href="{% url 'dashboard:view_task' i.id %}" class='anchorClass' > <h2 class="title">{{i.taskname}}</h2></a>
+							<p class="desc">{{i.taskDescription|truncatechars:50}}</p>
+							<ul>
+                                <li style="width:50%;">Posted by:<b>{{i.addedBy.username}}</b></li>
+                                <li style="width:50%;">Status:<b>{{i.taskStatus}}</b></li>
+
+
+							</ul>
+						</div>
+
+					</li>
+
+                    {% endfor %}
+
+
+
+
+				</ul>
+            </div>
+
+
+
+		</div>
+	</div>
+{% endblock content %}

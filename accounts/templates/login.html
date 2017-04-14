@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block headermenu %}
+{% endblock headermenu %}
+
+{% block content %}
+<div class="col-md-4  col-xs-offset-4">
+        <h2>Login</h2>
+        <form action="" method="post">
+
+                <div class="form-group">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                </div>
+                <input type="submit" name="submit" value="Log in" class="btn btn-info"/>
+             <a href="{% url 'accounts:register' %}" class="btn btn-info">Click here to Register</a>
+        </form>
+
+
+
+</div>
+{% endblock content %}

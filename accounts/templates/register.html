@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block headermenu %}
+{% endblock headermenu %}
+
+{% block content %}
+<div class="col-md-4  col-xs-offset-4">
+        <h2>Register here </h2>
+        <form action="" method="post">
+
+                <div class="form-group">
+                    {% csrf_token %}
+
+                    {{form.as_p}}
+
+                </div>
+                <input type="submit" name="submit" value="Register me " class="btn btn-info"/>
+             <a href="{% url 'accounts:login' %}" class="btn btn-info">Click to login</a>
+        </form>
+
+
+
+</div>
+
+
+<script>
+
+    document.getElementByClassName('helptext').innerHTML = '';
+</script>
+{% endblock content %}
